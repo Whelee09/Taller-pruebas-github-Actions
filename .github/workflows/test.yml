@@ -1,0 +1,30 @@
+name: Pruebas de Node.js
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Trae el código de tu repositorio a la máquina virtual
+    - name: Obtener el código
+      uses: actions/checkout@v4
+
+    # 2. Instala Node.js en la máquina virtual
+    - name: Configurar Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+
+    # 3. Instala las dependencias (como Jest)
+    - name: Instalar dependencias
+      run: npm install
+
+    # 4. Corre los tests
+    - name: Ejecutar pruebas
+      run: npm test
