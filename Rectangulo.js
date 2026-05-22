@@ -9,8 +9,7 @@ class Rectangulo {
   }
 
   calcularPerimetro() {
-    // Implementación incorrecta intencionalmente para que el test falle
-    return 0; 
+    return 2 * (this.base + this.altura);
   }
 }
 
